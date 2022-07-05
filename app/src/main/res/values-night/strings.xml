@@ -4,4 +4,5 @@
     <string name="title_needs">مستحقات</string>
     <string name="title_QRC">كودك</string>
     <string name="title_profile">حسابك</string>
+    <string name="qrcSndHint">"قم بادخال رقمك القومي "</string>
 </resources>

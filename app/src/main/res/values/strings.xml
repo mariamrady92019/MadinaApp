@@ -48,4 +48,6 @@
     <string name="room_hint">ادخل رقم الغرفه</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="qrcSndHint">قم بادخال رقمك القومي</string>
+    <string name="createQrcBtn">انشاء</string>
 </resources>
