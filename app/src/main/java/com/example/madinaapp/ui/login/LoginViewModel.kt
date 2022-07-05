@@ -1,5 +1,6 @@
 package com.example.myvacation
 
+import android.util.Log
 import android.util.Patterns
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
@@ -42,18 +43,22 @@ class LoginViewModel:ViewModel(){
 
     }
 
-   fun login(){
+   fun login(mail: String ,pass:String ){
 
-      // auth= FirebaseAuth.getInstance()
-       auth.signInWithEmailAndPassword(email.get()!!,pass.get()!!)
-           . addOnCompleteListener { task ->
+      auth= FirebaseAuth.getInstance()
+       auth.signInWithEmailAndPassword(mail, pass)
+           .addOnCompleteListener() { task ->
           if(task.isSuccessful) {
+              Log.e("login" ,  "success")
 
               messageLivedata.value="login succes"
+
           }
     else
      messageLivedata.value=task.exception?.localizedMessage
-      }
+               Log.e("login" ,  "fail")
+
+           }
 
 
                }

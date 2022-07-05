@@ -112,7 +112,7 @@
             android:layout_marginTop="@dimen/_22sdp"
             android:layout_toEndOf="@id/sec_txt"
             android:text="@string/end_date"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_15sdp"
             android:textStyle="italic" />
 
         <TextView
@@ -122,7 +122,7 @@
             android:layout_marginTop="@dimen/_38sdp"
             android:layout_toEndOf="@id/sec_txt"
             android:text="@string/end_date"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_15sdp"
             android:textStyle="italic"
 
             />

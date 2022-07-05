@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.widget.Button
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.madinaapp.HomeActivity
 import com.example.madinaapp.R
@@ -32,17 +34,14 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        // checkCurrentUser()
+       // checkCurrentUser()
         sign = findViewById(R.id.sig_up_btn)
         signin = findViewById(R.id.sig_in_btn)
 
 
 
 
-        viewModel.messageLivedata.observe(this,{
-           // if (it.contains("login succes"))
-            // goToHomeScreen()
-        })
+
 
         sign.setOnClickListener{
 
@@ -52,8 +51,10 @@ class LoginActivity : AppCompatActivity() {
         signin.setOnClickListener {
             getInputData()
 
-        }
+                login(mail, pass)
 
+
+        }
     }
 
     private fun getInputData() {
@@ -61,7 +62,9 @@ class LoginActivity : AppCompatActivity() {
         Log.e("mail" ,  mail.toString())
 
         pass= binding.passLayout.text.toString()
+
        login(mail, pass)
+
     }
 
     private fun goToHomeScreen() {
@@ -71,9 +74,6 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-     fun initViewModel(): LoginViewModel {
-        return ViewModelProvider(this).get(LoginViewModel::class.java)
-    }
 
 
     private fun checkCurrentUser() {
@@ -89,13 +89,14 @@ class LoginActivity : AppCompatActivity() {
       var  auth= FirebaseAuth.getInstance()
         auth.signInWithEmailAndPassword(mail, pass)
             .addOnCompleteListener(this) { task ->
+
                 if(task.isSuccessful) {
                     Log.e("login" ,  "success")
                     goToHomeScreen()
 
                 }
                 else{
-                    Log.e("login" , task.exception.localizedMessage.toString() )
+                    Log.e("login" , task.exception?.localizedMessage.toString() )
 
                     Log.e("login" ,  "fail")
 

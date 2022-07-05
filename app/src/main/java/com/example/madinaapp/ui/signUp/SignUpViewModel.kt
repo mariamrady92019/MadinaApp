@@ -1,4 +1,9 @@
 package com.example.madinaapp.ui.signUp
 
-class SignUpViewModel {
+import androidx.databinding.ObservableField
+import androidx.lifecycle.ViewModel
+import java.util.*
+
+class SignUpViewModel : ViewModel(){
+
 }

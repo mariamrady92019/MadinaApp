@@ -1,4 +1,4 @@
-package com.example.myvacation
+package com.example.madinaapp.ui
 import android.app.DatePickerDialog
 import android.app.appsearch.AppSearchBatchResult
 import android.icu.util.Calendar
@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
+import com.example.madinaapp.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.text.SimpleDateFormat
 import java.util.*

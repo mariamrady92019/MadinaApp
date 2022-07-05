@@ -1,4 +1,3 @@
 package com.example.madinaapp.ui.needs
 
-class NeedsModel {
-}
+data class NeedsModel(val startDate : String ,val endDate : String ,val needs : String )
