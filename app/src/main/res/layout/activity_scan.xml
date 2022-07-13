@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-       <variable
-           name="qrCodeViewModel"
-           type="com.example.madinaapp.ui.qrc.QRCViewModel" />
-        <variable
-            name="qrCodeImageViewVariable"
-            type="android.widget.ImageView" />
-        <variable
-            name="sdnEditTextValue"
-            type="String" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.qrc.QRCFragment"
-        android:background="@color/baby_blue">
+        tools:context=".ui.qrc.ScanActivity">
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
@@ -47,46 +38,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-       <EditText
-    android:id="@+id/qrcSnd"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintWidth_percent="0.7"
-      app:layout_constraintTop_toTopOf="@id/createQrc"
-      app:layout_constraintBottom_toBottomOf="@id/createQrc"
-      android:background="@drawable/card"
-      android:text="@={qrCodeViewModel.sdn}"
-      android:hint="@string/qrcSndHint"
-      android:gravity="center"
-      android:layout_marginRight="@dimen/_10sdp"
 
-      />
-
-        <ImageView
-            android:id="@+id/qrc_imageview"
-            android:layout_width="350dp"
+        <Button
+            android:id="@+id/scan_btn"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="start scan"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/qrc"
-            android:adjustViewBounds="true"
+
             />
 
+
         <Button
-            android:id="@+id/createQrc"
+            android:id="@+id/cleardata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/sign_in_btn_shape"
-            android:text="@string/createQrcBtn"
-            app:layout_constraintEnd_toStartOf="@id/qrcSnd"
+            android:text="clear All Data"
+            app:layout_constraintTop_toBottomOf="@id/scan_btn"
+            android:layout_marginTop="@dimen/_15sdp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/qrc_imageview"
-            android:layout_margin="@dimen/_15sdp"
-            app:createQrc="@{sdnEditTextValue}"
-            app:setImageView="@{qrCodeImageViewVariable}"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/guideline"
+            app:layout_constraintBottom_toTopOf="@id/scan_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:visibility="invisible"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

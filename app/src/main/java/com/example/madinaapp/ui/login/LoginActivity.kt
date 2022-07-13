@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.madinaapp.HomeActivity
 import com.example.madinaapp.R
 import com.example.madinaapp.databinding.ActivityLoginBinding
+import com.example.madinaapp.ui.qrc.ScanActivity
 import com.example.madinaapp.ui.signUp.SignUpActivity
 import com.example.myvacation.LoginViewModel
 import com.google.firebase.auth.FirebaseAuth
@@ -68,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToHomeScreen() {
-        val intent = Intent(this, HomeActivity::class.java)
+        val intent = Intent(this, ScanActivity::class.java)
         startActivity(intent)
     }
 
@@ -87,22 +88,21 @@ class LoginActivity : AppCompatActivity() {
     fun login(mail: String ,pass:String ){
 
       var  auth= FirebaseAuth.getInstance()
-        auth.signInWithEmailAndPassword(mail, pass)
-            .addOnCompleteListener(this) { task ->
-
-                if(task.isSuccessful) {
-                    Log.e("login" ,  "success")
-                    goToHomeScreen()
-
-                }
-                else{
-                    Log.e("login" , task.exception?.localizedMessage.toString() )
-
-                    Log.e("login" ,  "fail")
-
-            }}
-
-
+//        auth.signInWithEmailAndPassword(mail, pass).addOnCompleteListener(this) { task ->
+//
+//                if(task.isSuccessful) {
+//                    Log.e("login" ,  "success")
+//                    goToHomeScreen()
+//
+//                }
+//                else{
+//                    Log.e("login" , task.exception?.localizedMessage.toString() )
+//
+//                    Log.e("login" ,  "fail")
+//
+//            }}
+//
+goToHomeScreen()
     }
 
 }
